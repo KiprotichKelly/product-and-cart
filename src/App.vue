@@ -15,6 +15,7 @@
         <div to @click="toggleSidebar" class="top-bar-cart-link">
           <i class="icofont-cart-alt icofont-1x"></i>
           <span>Cart ({{ totalQuantity }})</span>
+          <span>${{ CalculateTotal }}</span>
         </div>
       </header>
   <router-view :inventory="inventory" :addToCart="addToCart"/>
@@ -34,6 +35,7 @@ export default {
   components: {
     Sidebar
   },
+  props: ['CalculateTotal'],
   data () {
     return {
       showSidebar: false,

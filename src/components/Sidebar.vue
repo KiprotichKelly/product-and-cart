@@ -45,6 +45,9 @@
       </div>
     </div>
   </aside>
+  <App
+  :CalculateTotal="calculateTotal"
+  />
 </template>
 <script>
 export default {
@@ -58,7 +61,7 @@ export default {
         return product.price.USD
       },
       calculateTotal () {
-        const total = Object.entries(this.cart).reduce((acc, curr, index) => {
+        const total = Object.entries(this.cart).reduce((acc, curr) => {
           return acc + (curr[1] * this.getPrice(curr[0]))
         }, 0)
         return total.toFixed(2)
